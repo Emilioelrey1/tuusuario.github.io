@@ -1,0 +1,606 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Portafolio - Juan Emilio Cruz Lara</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portafolio académico y profesional de Juan Emilio Cruz Lara: investigación, publicaciones, ponencias y proyectos.">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #0f172a;
+      color: #e5e7eb;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* Layout básico */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(10px);
+      background: rgba(15, 23, 42, 0.9);
+      border-bottom: 1px solid #1f2937;
+    }
+
+    .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.8rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      color: #38bdf8;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+      font-size: 0.95rem;
+    }
+
+    nav a {
+      padding: 0.3rem 0.6rem;
+      border-radius: 999px;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    nav a:hover {
+      background: #1f2937;
+      color: #f9fafb;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1.5rem;
+    }
+
+    /* Sección hero */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.3fr);
+      gap: 2rem;
+      align-items: center;
+      padding: 3rem 0 2rem;
+    }
+
+    .hero-title {
+      font-size: 2.3rem;
+      font-weight: 800;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero-highlight {
+      background: linear-gradient(to right, #38bdf8, #a855f7, #ec4899);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+      color: #9ca3af;
+      margin-bottom: 1rem;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .tag {
+      border-radius: 999px;
+      border: 1px solid #1f2937;
+      padding: 0.2rem 0.7rem;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #9ca3af;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+      padding: 0.6rem 1rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      border: 1px solid transparent;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: background 0.2s, color 0.2s, transform 0.1s, border-color 0.2s;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #38bdf8, #a855f7);
+      color: #0b1120;
+      font-weight: 600;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.05);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border-color: #374151;
+      color: #e5e7eb;
+    }
+
+    .btn-secondary:hover {
+      background: #111827;
+      border-color: #4b5563;
+    }
+
+    .hero-card {
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.2), transparent),
+                  radial-gradient(circle at bottom, rgba(168, 85, 247, 0.2), transparent);
+      border-radius: 1.5rem;
+      padding: 1.5rem;
+      border: 1px solid #1f2937;
+    }
+
+    .hero-card h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #9ca3af;
+      margin-bottom: 0.8rem;
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .stat {
+      background: rgba(15, 23, 42, 0.8);
+      border-radius: 1rem;
+      padding: 0.8rem;
+      border: 1px solid #1f2937;
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      color: #9ca3af;
+      margin-bottom: 0.2rem;
+    }
+
+    .stat-value {
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    /* Secciones */
+    section {
+      padding: 2rem 0;
+      border-top: 1px solid #1f2937;
+    }
+
+    section h2 {
+      font-size: 1.4rem;
+      margin-bottom: 0.8rem;
+    }
+
+    section p.section-intro {
+      color: #9ca3af;
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: #020617;
+      border-radius: 1.1rem;
+      padding: 1rem;
+      border: 1px solid #1f2937;
+    }
+
+    .card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .card span.badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      padding: 0.1rem 0.5rem;
+      border-radius: 999px;
+      background: #111827;
+      color: #9ca3af;
+      margin-bottom: 0.5rem;
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      color: #d1d5db;
+      margin-bottom: 0.4rem;
+    }
+
+    .card ul {
+      list-style: disc;
+      padding-left: 1rem;
+      font-size: 0.85rem;
+      color: #9ca3af;
+    }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.6rem;
+    }
+
+    .pill {
+      font-size: 0.75rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      background: #020617;
+      border: 1px solid #1f2937;
+      color: #9ca3af;
+    }
+
+    /* Contacto */
+    .contact-box {
+      background: #020617;
+      border-radius: 1.1rem;
+      padding: 1rem;
+      border: 1px solid #1f2937;
+      max-width: 600px;
+    }
+
+    .contact-item {
+      margin-bottom: 0.4rem;
+      font-size: 0.9rem;
+    }
+
+    .contact-label {
+      color: #9ca3af;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    footer {
+      padding: 1.5rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: #6b7280;
+      border-top: 1px solid #1f2937;
+      margin-top: 2rem;
+    }
+
+    /* Responsivo */
+    @media (max-width: 800px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .grid-2 {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .nav-container {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .hero-title {
+        font-size: 1.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navegación -->
+  <header>
+    <div class="nav-container">
+      <div class="logo">J. E. CRUZ LARA</div>
+      <nav>
+        <ul>
+          <li><a href="#sobre-mi">Sobre mí</a></li>
+          <li><a href="#proyectos">Proyectos</a></li>
+          <li><a href="#publicaciones">Publicaciones</a></li>
+          <li><a href="#ponencias">Ponencias</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Contenido principal -->
+  <main class="container">
+    <!-- Hero -->
+    <section class="hero">
+      <div>
+        <h1 class="hero-title">
+          Investigación, datos y política criminal
+          <span class="hero-highlight">al servicio de la seguridad pública.</span>
+        </h1>
+        <p class="hero-subtitle">
+          Soy <strong>Juan Emilio Cruz Lara</strong>, especialista en seguridad pública e investigador
+          en criminalidad femenina, exclusión social y sistemas penitenciarios en México.
+        </p>
+
+        <div class="hero-tags">
+          <span class="tag">Seguridad pública</span>
+          <span class="tag">Política criminal</span>
+          <span class="tag">Análisis de datos</span>
+          <span class="tag">Investigación académica</span>
+        </div>
+
+        <div class="hero-buttons">
+          <a href="#proyectos" class="btn-primary">Ver proyectos</a>
+          <a href="#contacto" class="btn-secondary">Disponible para colaboraciones</a>
+        </div>
+      </div>
+
+      <aside class="hero-card">
+        <h2>Resumen rápido</h2>
+        <p style="font-size:0.9rem; color:#d1d5db; margin-bottom:0.6rem;">
+          Experiencia combinando investigación académica, análisis cuantitativo y trabajo en seguridad pública.
+        </p>
+        <div class="stat-grid">
+          <div class="stat">
+            <div class="stat-label">Experiencia en investigación</div>
+            <div class="stat-value">4+ años</div>
+            <div style="font-size:0.75rem; color:#9ca3af;">Auxiliar de investigación, Instituto del Caribe (2019–2023).</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Formación</div>
+            <div class="stat-value">UNAM</div>
+            <div style="font-size:0.75rem; color:#9ca3af;">Ciencias Políticas · Especialidad en Seguridad Pública.</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Ponencias</div>
+            <div class="stat-value">Nac./Int.</div>
+            <div style="font-size:0.75rem; color:#9ca3af;">Incluye 1er Congreso de Seguridad Pública, Gto. 2025.</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Temas clave</div>
+            <div style="font-size:0.8rem; color:#e5e7eb;">
+              Matrimonio infantil · Mujeres criminales · Empresas militares privadas.
+            </div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- Sobre mí -->
+    <section id="sobre-mi">
+      <h2>Sobre mí</h2>
+      <p class="section-intro">
+        Soy politólogo y especialista en seguridad pública por la UNAM. Mi trabajo se centra en la
+        <strong>criminalidad femenina</strong>, la <strong>exclusión social</strong> y el análisis estructural y geográfico
+        del sistema penal y penitenciario en México. Busco articular investigación rigurosa con propuestas de
+        política pública aplicables.
+      </p>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Formación académica</h3>
+          <ul>
+            <li>Licenciatura en Ciencias Políticas y Administración Pública – UNAM.</li>
+            <li>Especialidad en Seguridad Pública – UNAM.</li>
+            <li>Formación complementaria en métodos cuantitativos, análisis espacial y políticas públicas.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Experiencia</h3>
+          <ul>
+            <li>Auxiliar de investigación en el Instituto del Caribe (2019–2023).</li>
+            <li>Participación en proyectos sobre violencia, género y sistema penal en México.</li>
+            <li>Diseño de ponencias, informes y materiales de divulgación para públicos académicos y gubernamentales.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Proyectos -->
+    <section id="proyectos">
+      <h2>Proyectos y líneas de trabajo</h2>
+      <p class="section-intro">
+        Estos son algunos de los ejes y proyectos en los que he trabajado o continúo desarrollando.
+      </p>
+      <div class="grid-2">
+        <div class="card">
+          <span class="badge">Investigación</span>
+          <h3>Mujeres criminales en México (2017–2030)</h3>
+          <p>
+            Proyecto de análisis estructural, geográfico y penitenciario sobre el incremento de la población
+            femenina en reclusión y su relación con factores de exclusión social.
+          </p>
+          <ul>
+            <li>Uso de bases de datos oficiales (INEGI, SESNSP, Cuadernos Penitenciarios).</li>
+            <li>Modelos de proyección de stock penitenciario al 2030.</li>
+            <li>Mapas y análisis espacial de la criminalidad femenina.</li>
+          </ul>
+          <div class="pill-list">
+            <span class="pill">Series de tiempo</span>
+            <span class="pill">Mapas en R</span>
+            <span class="pill">Política criminal</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="badge">Artículo</span>
+          <h3>Matrimonio infantil en México</h3>
+          <p>
+            Trabajo centrado en las dimensiones estructurales y de género del matrimonio infantil, y su relación
+            con violencia, pobreza y marcos normativos insuficientes.
+          </p>
+          <ul>
+            <li>Análisis de datos demográficos y jurídicos.</li>
+            <li>Enfoque en derechos humanos y protección de niñas y adolescentes.</li>
+          </ul>
+          <div class="pill-list">
+            <span class="pill">Derechos humanos</span>
+            <span class="pill">Violencia de género</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="badge">Artículo</span>
+          <h3>Empresas militares privadas en México</h3>
+          <p>
+            Investigación académica sobre la expansión de esquemas de seguridad privada y militarizada, así como 
+            sus implicaciones para el Estado de derecho y la seguridad pública.
+          </p>
+          <ul>
+            <li>Revisión teórica y normativa.</li>
+            <li>Estudio de casos y riesgos para los derechos humanos.</li>
+          </ul>
+          <div class="pill-list">
+            <span class="pill">Seguridad privada</span>
+            <span class="pill">Militarización</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="badge">Aplicado</span>
+          <h3>Visualización y análisis de datos</h3>
+          <p>
+            Desarrollo de mapas, gráficas y dashboards básicos para comunicar hallazgos sobre criminalidad, 
+            violencia y sistema penitenciario.
+          </p>
+          <ul>
+            <li>Uso de R para análisis estadístico y espacial.</li>
+            <li>Elaboración de materiales para informes y presentaciones.</li>
+          </ul>
+          <div class="pill-list">
+            <span class="pill">R</span>
+            <span class="pill">Leaflet</span>
+            <span class="pill">ggplot2</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Publicaciones -->
+    <section id="publicaciones">
+      <h2>Publicaciones y trabajos académicos</h2>
+      <p class="section-intro">
+        Selección de trabajos en los que he participado. (Puedes adaptar esta sección cuando tengas los datos
+        exactos de publicación: revista, año, volumen, etc.)
+      </p>
+      <div class="card">
+        <ul>
+          <li><strong>Matrimonio infantil en México:</strong> análisis estructural y jurídico de un fenómeno persistente.</li>
+          <li><strong>Mujeres criminales en México 2017–2030:</strong> propuesta de lectura estructural y proyección penitenciaria.</li>
+          <li><strong>Empresas militares privadas en México:</strong> riesgos, vacíos normativos y desafíos para la seguridad pública.</li>
+        </ul>
+        <p style="font-size:0.85rem; color:#9ca3af; margin-top:0.6rem;">
+          Nota: aquí puedes añadir enlaces en PDF o DOI cuando estén disponibles.
+        </p>
+      </div>
+    </section>
+
+    <!-- Ponencias -->
+    <section id="ponencias">
+      <h2>Ponencias y participación en eventos</h2>
+      <p class="section-intro">
+        Algunas presentaciones nacionales e internacionales en las que he participado.
+      </p>
+      <div class="card">
+        <ul>
+          <li>
+            <strong>1er Congreso de Seguridad Pública del Gobierno de Guanajuato (2025)</strong><br>
+            Participación con ponencia sobre criminalidad femenina, exclusión social y retos de política criminal.
+          </li>
+          <li>
+            Otras participaciones en foros nacionales e internacionales sobre violencia, género y sistema penal
+            (lista detallada disponible bajo solicitud).
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto">
+      <h2>Contacto</h2>
+      <p class="section-intro">
+        Abierto a colaboraciones en investigación, consultorías en seguridad pública, análisis de datos
+        y proyectos académicos.
+      </p>
+      <div class="contact-box">
+        <div class="contact-item">
+          <div class="contact-label">Correo</div>
+          <a href="mailto:emiliocruzlara@politicas.unam.mx">
+            emiliocruzlara@politicas.unam.mx
+          </a>
+        </div>
+        <div class="contact-item">
+          <div class="contact-label">Ubicación</div>
+          Ciudad de México, México.
+        </div>
+        <div class="contact-item">
+          <div class="contact-label">LinkedIn / Redes</div>
+          <span>Agrega aquí tu perfil de LinkedIn, ORCID o Google Scholar cuando quieras.</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Juan Emilio Cruz Lara. Todos los derechos reservados.
+  </footer>
+
+  <script>
+    // Año automático en el footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Scroll suave para los links del menú
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const targetId = this.getAttribute('href');
+        if (targetId.length > 1) {
+          e.preventDefault();
+          document.querySelector(targetId).scrollIntoView({
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
