@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -281,6 +280,32 @@
       color: #9ca3af;
     }
 
+    /* Galería de mapas */
+    .map-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .map-card {
+      background: #020617;
+      border-radius: 1.1rem;
+      padding: 0.8rem;
+      border: 1px solid #1f2937;
+    }
+
+    .map-card img {
+      width: 100%;
+      border-radius: 0.8rem;
+      margin-bottom: 0.4rem;
+      display: block;
+    }
+
+    .map-card figcaption {
+      font-size: 0.85rem;
+      color: #d1d5db;
+    }
+
     /* Contacto */
     .contact-box {
       background: #020617;
@@ -339,6 +364,7 @@
       <div class="logo">J. E. CRUZ LARA</div>
       <nav>
         <ul>
+          <li><a href="#mapas">Mapas</a></li>
           <li><a href="#sobre-mi">Sobre mí</a></li>
           <li><a href="#proyectos">Proyectos</a></li>
           <li><a href="#publicaciones">Publicaciones</a></li>
@@ -356,22 +382,23 @@
       <div>
         <h1 class="hero-title">
           Investigación, datos y política criminal
-          <span class="hero-highlight">al servicio de la seguridad pública.</span>
+          <span class="hero-highlight">con énfasis en análisis espacial y mapas.</span>
         </h1>
         <p class="hero-subtitle">
           Soy <strong>Juan Emilio Cruz Lara</strong>, especialista en seguridad pública e investigador
-          en criminalidad femenina, exclusión social y sistemas penitenciarios en México.
+          en criminalidad femenina, exclusión social y sistemas penitenciarios en México, con experiencia en
+          análisis espacial y visualización de datos.
         </p>
 
         <div class="hero-tags">
           <span class="tag">Seguridad pública</span>
           <span class="tag">Política criminal</span>
-          <span class="tag">Análisis de datos</span>
-          <span class="tag">Investigación académica</span>
+          <span class="tag">Análisis espacial</span>
+          <span class="tag">Mapas en R</span>
         </div>
 
         <div class="hero-buttons">
-          <a href="#proyectos" class="btn-primary">Ver proyectos</a>
+          <a href="#mapas" class="btn-primary">Ver mapas</a>
           <a href="#contacto" class="btn-secondary">Disponible para colaboraciones</a>
         </div>
       </div>
@@ -379,7 +406,7 @@
       <aside class="hero-card">
         <h2>Resumen rápido</h2>
         <p style="font-size:0.9rem; color:#d1d5db; margin-bottom:0.6rem;">
-          Experiencia combinando investigación académica, análisis cuantitativo y trabajo en seguridad pública.
+          Experiencia combinando investigación académica, análisis cuantitativo, visualización de datos y trabajo en seguridad pública.
         </p>
         <div class="stat-grid">
           <div class="stat">
@@ -393,18 +420,86 @@
             <div style="font-size:0.75rem; color:#9ca3af;">Ciencias Políticas · Especialidad en Seguridad Pública.</div>
           </div>
           <div class="stat">
-            <div class="stat-label">Ponencias</div>
-            <div class="stat-value">Nac./Int.</div>
-            <div style="font-size:0.75rem; color:#9ca3af;">Incluye 1er Congreso de Seguridad Pública, Gto. 2025.</div>
+            <div class="stat-label">Herramientas</div>
+            <div style="font-size:0.8rem; color:#e5e7eb;">
+              R (ggplot2, sf, leaflet) · Análisis geoespacial · Mapas temáticos.
+            </div>
           </div>
           <div class="stat">
             <div class="stat-label">Temas clave</div>
             <div style="font-size:0.8rem; color:#e5e7eb;">
-              Matrimonio infantil · Mujeres criminales · Empresas militares privadas.
+              Criminalidad femenina · Violencia · Sistema penitenciario.
             </div>
           </div>
         </div>
       </aside>
+    </section>
+
+    <!-- Mapas y visualizaciones -->
+    <section id="mapas">
+      <h2>Mapas y visualizaciones principales</h2>
+      <p class="section-intro">
+        Mi trabajo se centra en el análisis espacial del delito, la violencia y fenómenos sociales en México.
+        Estos son algunos ejemplos de mapas y visualizaciones que he desarrollado en R (ggplot2, sf, leaflet)
+        y herramientas de edición gráfica.
+      </p>
+
+      <div class="map-grid">
+        <!-- Cambia los nombres de archivo por los reales que subas a GitHub -->
+        <figure class="map-card">
+          <a href="mapa_coyoacan_heatmap.png" target="_blank">
+            <img src="mapa_coyoacan_heatmap.png" alt="Mapa de calor de delitos en Coyoacán, CDMX">
+          </a>
+          <figcaption>
+            Mapa de calor de delitos en Coyoacán (CDMX), usando datos georreferenciados y <strong>leaflet</strong> en R.
+          </figcaption>
+        </figure>
+
+        <figure class="map-card">
+          <a href="mapa_regiones_indigenas.png" target="_blank">
+            <img src="mapa_regiones_indigenas.png" alt="Mapa coroplético de regiones indígenas de México">
+          </a>
+          <figcaption>
+            Mapa coroplético de regiones indígenas de México, trabajado con <strong>shapefiles</strong> y diseño en GIMP.
+          </figcaption>
+        </figure>
+
+        <figure class="map-card">
+          <a href="mapa_franja_horaria.png" target="_blank">
+            <img src="mapa_franja_horaria.png" alt="Mapa de calor por franjas horarias en la CDMX">
+          </a>
+          <figcaption>
+            Distribución de delitos por <strong>franja horaria</strong> en la Ciudad de México, mediante densidades de kernel.
+          </figcaption>
+        </figure>
+
+        <figure class="map-card">
+          <a href="mapa_ley_desaparicion.png" target="_blank">
+            <img src="mapa_ley_desaparicion.png" alt="Mapa de estados con ley contra la desaparición">
+          </a>
+          <figcaption>
+            Mapa de entidades federativas con y sin <strong>ley contra la desaparición</strong>, resaltando diferencias normativas.
+          </figcaption>
+        </figure>
+
+        <figure class="map-card">
+          <a href="mapa_puntos_delitos.png" target="_blank">
+            <img src="mapa_puntos_delitos.png" alt="Distribución de delitos por categoría en la CDMX">
+          </a>
+          <figcaption>
+            Distribución de delitos por categoría en la CDMX, usando <strong>facetas</strong> y escalas personalizadas en ggplot2.
+          </figcaption>
+        </figure>
+
+        <figure class="map-card">
+          <a href="mapa_cluster_delitos.png" target="_blank">
+            <img src="mapa_cluster_delitos.png" alt="Mapa interactivo con clúster de delitos en el Valle de México">
+          </a>
+          <figcaption>
+            Mapa interactivo con <strong>clústeres de delitos</strong> y controles por tipo de delito en leaflet.
+          </figcaption>
+        </figure>
+      </div>
     </section>
 
     <!-- Sobre mí -->
